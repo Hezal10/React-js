@@ -1,0 +1,28 @@
+import React from "react";
+class App extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = { }
+    }
+    doSum(){
+        var a = parseInt(this.state.txt1);
+        var b = parseInt(this.state.txt2);
+        var c = parseInt(this.state.txt3);
+        var d = parseInt(this.state.txt4);
+        var f = a + b + c + d;
+        this.setState({ans:"Sum is "+f});
+    }
+    render() {
+        return(
+        <>
+           No1<input type="text" onChange={(e)=> this.setState({txt1:e.target.value})}/>
+           No2<input type="text" onChange={(e)=> this.setState({txt2:e.target.value})}/>
+           No3<input type="text" onChange={(e)=> this.setState({txt3:e.target.value})}/>
+           No4<input type="text" onChange={(e)=> this.setState({txt4:e.target.value})}/>
+           <input type="button" value="Sum" onClick={this.doSum.bind(this)}/>
+           <br/>
+           {this.state.ans}
+        </>)
+    }
+}
+export default App;
